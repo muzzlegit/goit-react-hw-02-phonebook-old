@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+
+import { LabelWrap,FormWrap, ButtonWrap } from './ContactForm.styled';
+
 
 class ContactForm extends Component {
     state = {
@@ -22,8 +26,8 @@ class ContactForm extends Component {
     render () {
         return (
             <>        
-                <form onSubmit={this.handleSubmit}>
-                    <label>
+                <FormWrap onSubmit={this.handleSubmit}>
+                    <LabelWrap>
                         Name
                         <input
                             name="name"
@@ -34,8 +38,8 @@ class ContactForm extends Component {
                             value={this.state.name}
                             onChange={this.handleNameChange}
                         />
-                    </label>
-                    <label>
+                    </LabelWrap>
+                    <LabelWrap>
                         Number
                         <input
                             type="tel"
@@ -46,14 +50,18 @@ class ContactForm extends Component {
                             value={this.state.number}
                             onChange={this.handleNameChange}
                         />
-                    </label>
-                    <button type="submit">Add contact</button>
-                </form>
+                    </LabelWrap>
+                    <ButtonWrap type="submit">Add contact</ButtonWrap>
+                </FormWrap>
 
             </>
         )
     }
 
 }
+
+ContactForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};
 
 export default ContactForm;

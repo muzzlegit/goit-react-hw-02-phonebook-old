@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.d {
+  text-align: center;
+  background-color: #5f6468;
+  background-color: #585d61;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #b4786b;
+  border-radius: 3px;
+  display: block;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

@@ -2,9 +2,11 @@
 import React, { Component } from "react";
 import { nanoid } from 'nanoid';
 
-import ContactForm from './components/ContactForm/ContactForm';
-import ContactList from './components/ContactList/ContactList';
-import Filter from "./components/Filter/Filter";
+import ContactForm from '../ContactForm/ContactForm';
+import ContactList from '../ContactList/ContactList';
+import Filter from "../Filter/Filter";
+
+import { Container, ContainerTitle, ContainerForm, ContainerSecondaryTitle } from './App.styled';
 
 class App extends Component {
   state = {
@@ -59,13 +61,15 @@ class App extends Component {
 
   render () {
     return (
-      <div>
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.handleFormSubmit}/>
-        <h2>Contacts</h2>
-        <Filter value = {this.state.filter} onChange = {this.handleFilter}/>
-        <ContactList contacts = {this.contactsSearch()} onDeleteContact={this.deleteContact}/>
-      </div>
+      <Container>
+        <ContainerTitle>Phonebook</ContainerTitle>
+        <ContainerForm>
+          <ContactForm onSubmit={this.handleFormSubmit}/>
+          <ContainerSecondaryTitle>Contacts</ContainerSecondaryTitle>
+          <Filter value = {this.state.filter} onChange = {this.handleFilter}/>
+          <ContactList contacts = {this.contactsSearch()} onDeleteContact={this.deleteContact}/>
+        </ContainerForm>
+      </Container>
     )
   }
 }
